@@ -1,408 +1,352 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+        <title>reveal.js - The HTML Presentation Framework</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+        <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+        <meta name="author" content="Hakim El Hattab">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/pale-imitations.css" id="theme">
 
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+        <link rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.css">
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
 
-	<body>
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
 
-		<div class="reveal">
+    <body>
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
-					</p>
-				</section>
+        <div class="reveal">
 
-				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
-				</section>
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                  <h1>Don't write code</h1>
+                  <h3>(and how to not do it well)</h3>
+                  <p>
+                    <small>
+                      <i class="fa fa-twitter"></i> <a href="http://twitter.com/jlabusch">@jlabusch</a>
+                    </small>
+                  </p>
+                </section>
 
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
+                <section>
+                    <h3>This is not a new sentiment.</h3>
+                    <p>
+                        
+                    </p><p>
+                        Need to do $X? <pre style="width:420px;"><code>{npm,pip,gem} install $X</code></pre>
+                    </p>
+                </section>
 
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
-					</p>
-				</section>
+                <section>
+                    <h1>Not so fast</h1>
+                </section>
 
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
+                <section data-background="img/ring-0.png" data-background-size="auto 100%">
+                    <span style="position:absolute; top:-6em; left:0px">Your code</span>
+                </section>
 
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
-				</section>
+                <section data-background="img/ring-1a.png" data-background-size="auto 100%">
+                    <span style="position:absolute; top:-6em; left:0px">3<small><sup>rd</sup></small> party libs</span>
+                </section>
 
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
+                <section data-background="img/ring-2a.png" data-background-size="auto 100%">
+                    <span style="position:absolute; top:-6em; left:0px">Language stdlib</span>
+                </section>
 
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+                <section data-background="img/ring-3a.png" data-background-size="auto 100%">
+                    <span style="position:absolute; top:-6em; left:0px">OS/platform</span>
+                </section>
 
-						```
-						<section data-markdown>
-						  ## Markdown support
+                <section>
+                    <h3>So <i>&ldquo;don't write code&rdquo;</i>, fine&hellip;</h3>
+                    <p>We know we should look for an existing wheel rather than (re-)inventing our own.
+                       But how do we pick the right one?</p>
+                </section>
 
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
+                <section>
+                    <h3>Examples of terrible criteria</h3>
+                    <p>
+                        <ul class="fa-ul" style="list-style-type:none;">
+                            <li class="fragment"><i class="fa-li fa fa-github"></i>It has many stars on GitHub</li>
+                            <li class="fragment"><i class="fa-li fa fa-download"></i>It has many downloads this week on npmjs.org</li>
+                            <li class="fragment"><i class="fa-li fa fa-twitter"></i>Someone tweeted about it</li>
+                        </ul>
+                    </p>
+                    <aside class="notes">
+                        Jacob Kaplan-Moss getting people to install a trick package
+                    </aside>
+                </section>
 
-				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
+                <section>
+                    <h3>Better criteria</h3>
+                    <p>
+                        <ul class="fa-ul" style="list-style-type:none;">
+                            <li class="fragment"><i class="fa-li fa fa-clock-o"></i>Been in stable production use for a while</li>
+                            <li class="fragment"><i class="fa-li fa fa-bar-chart"></i>Healthy bug report/fix lifecycle</li>
+                            <li class="fragment"><i class="fa-li fa fa-cube"></i>Good packaging and availability of updates</li>
+                            <li class="fragment"><i class="fa-li fa fa-bug"></i>Periodic security reviews</li>
+                            <li class="fragment" style="color:#163"><i class="fa-li fa fa-check-square-o"></i><em>(All the usual stuff about doing one thing well...)</em></li>
+                        </ul>
+                        <aside class="notes">
+                            Boring = good.
+                        </aside>
+                    </p>
+                </section>
 
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
+                <section>
+                    <h3>Hypothesis: candidates from outer rings meet more of those criteria</h3>
+                    <p>
+                        <img width="auto" height="400px" data-src="img/ring-3a.png" alt="Rings">
+                    </p>
+                </section>
 
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
-				</section>
+                <section>
+                    <h3>Resource comparison</h3>
+                    <p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><i class="fa fa-cogs"></i></td>
+                                <td>OS/platform:</td>
+                                <td>massive user base, funding</td>
+                            <tr>
+                            <tr>
+                                <td><i class="fa fa-database"></i></td>
+                                <td>Lang stdlib:</td>
+                                <td>large user base, some funding</td>
+                            <tr>
+                            <tr>
+                                <td><i class="fa fa-code-fork"></i></td>
+                                <td>3<small><sup>rd</sup></small> party libs:</td>
+                                <td>highly variable, need to research</td>
+                            <tr>
+                            <tr>
+                                <td><i class="fa fa-code"></i></td>
+                                <td>Your code:</td>
+                                <td>usually lean as hell</td>
+                            <tr>
+                        </tbody>
+                    </table>
+                    <aside class="notes">
+                        e.g. Node Foundation plat member: $500k USD commitment
+                    </aside>
+                    </p>
+                </section>
 
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
-				</section>
+                <section data-background="img/unpopular_puffin.jpg" data-background-size="100% auto">
+                    <h1 style="text-shadow:2px 2px 4px rgba(0,0,0,0.8)">On to some examples</h1>
+                </section>
 
-				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
-				</section>
+                <section>
+                    <h3>Daemonizing your server</h3>
+                    <p>
+                        <img width="auto" height="400px" data-src="img/daemon.png" alt="Daemon">
+                    </p>
+                </section>
 
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code>Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-				</section>
+                <section>
+                    <h3>Daemonizing your server</h3>
+                    <p>
+                        <pre><code style="word-wrap: break-word;">require('daemon')();
 
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-				</section>
+console.log("Yay I'm now a daemon! Right?");</code></pre>
+                    </p>
+                    <p class="fragment">
+                        <img width="auto" height="300px" data-src="img/disapproval.jpg" alt="Disapproval">
+                    </p>
+                </section>
 
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
+                <section>
+                    <h3>Daemonizing your server</h3>
+                    <p>
+                        <ul class="fa-ul" style="list-style-type:none;">
+                            <li style="color:#163"><i class="fa-li fa fa-check-square-o"></i>Fork</li>
+                            <li><i class="fa-li fa fa-square-o"></i>Write a pidfile</li>
+                            <li><i class="fa-li fa fa-square-o"></i>Change umask</li>
+                            <li><i class="fa-li fa fa-square-o"></i>Change UID/GID</li>
+                            <li><i class="fa-li fa fa-square-o"></i>Set the process name</li>
+                            <li style="color:#163"><i class="fa-li fa fa-check-square-o"></i>Clean up ENV</li>
+                            <li style="color:#163"><i class="fa-li fa fa-check-square-o"></i>Change working dir</li>
+                            <li><i class="fa-li fa fa-square-o"></i>Create a new session ID</li>
+                            <li style="color:#163"><i class="fa-li fa fa-check-square-o"></i>Fix stdin/out/err</li>
+                        </ul>
+                    </p>
+                </section>
 
-    var nodes = document.querySelectorAll( selector );
+                <section>
+                    <h3>Better solutions</h3>
+                    <p style="text-align:left">
+                        Linux
+                    </p>
+                    <div style="margin-left:3em;padding-left:1em;width:300px;" class="inlinecode">start-stop-daemon</div>
+                    <p style="text-align:left">
+                        BSD
+                    </p>
+                    <div style="margin-left:3em;padding-left:1em;width:300px;" class="inlinecode">daemon</div>
+                    <p>
+                        <ul>
+                            <li>They do all that stuff and more</li>
+                            <li>They come from the OS/Platform layer</li>
+                            <li>Only minor code changes required, like setting process name</li>
+                        </ul>
+                    </p>
+                </section>
 
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
+                <section>
+                    <h3>Next: YAML parsing</h3>
+                    <p>
+                        <img width="auto" height="129px" data-src="img/yaml.png" alt="YAML">
+                    </p>
+                    <p class="fragment">
+                        <img width="auto" height="310px" data-src="img/yaml-cve.png" alt="YAML-CVE">
+                    </p>
+                </section>
 
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
+                <section>
+                    <h3>YAML parsing with libyaml</h3>
+                    <p>
+                        <img width="auto" height="129px" data-src="img/yaml-native.png" alt="YAML">
+                    </p>
+                    <p class="fragment">
+                        <img width="auto" height="310px" data-src="img/yaml-native-cve.png" alt="YAML-CVE">
+                    </p>
+                </section>
 
-				<section>
-					<h2>Marvelous List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
+                <section>
+                    <h3>What libyaml did right</h3>
+                    <p>
+                        By wrapping native libraries, it got the direct benefits of review by teams
+                        like Red Hat Product Security, who found this CVE.
+                    </p>
+                </section>
 
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
+                <section>
+                    <h3>What libyaml did wrong</h3>
+                    <p>
+                        Re-use by copy/paste meant that the Node libyaml author had to get around to
+                        patching his own copy of the native source. Just updating your OS copy of
+                        the library didn't fix the problem.
+                    </p>
+                </section>
 
-				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							<tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							<tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							<tr>
-						</tbody>
-					</table>
-				</section>
+                <section>
+                    <h3>libyaml hall of shame</h3>
+                    <p>
+                        Some libraries that wrap by copy/paste <em>still</em> haven't been updated for
+                        this 2013 vulnerability. (https://github.com/tarruda/node-libyaml)
+                    </p>
+                </section>
 
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
+                <section>
+                    <h3>Next: npm, pip and gem</h3>
+                    <p>
+                        <ul class="fa-ul" style="list-style-type:none;">
+                            <li class="fragment"><i class="fa-li fa fa-smile-o"></i>Undeniably convenient</li>
+                            <li class="fragment"><i class="fa-li fa fa-bug"></i>Quality control is problematic - no moderation</li>
+                            <li class="fragment"><i class="fa-li fa fa-chain"></i>Security nightmare - no review, no signing*</li>
+                        </ul>
+                        <aside class="notes">
+                            https://github.com/pypa/pip/issues/425 - Jacob Kaplan-Moss getting people
+                            to install a trick package.
+                            [*] RubyGems CAN sign, but most don't, and there's no well-established chain
+                            of trust - http://guides.rubygems.org/security/
+                        </aside>
+                    </p>
+                </section>
 
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
+                <section>
+                    <h3>npm, pip and gem</h3>
+                    <p>
+                        Use tools like nsp to check your dependencies for
+                        updates and vulnerabilities.
+                        <pre style="width:120%;margin-left:-10%"><code>$ nsp audit-package
+Name          Installed        Patched       Vulnerable Dependency
+express         4.2.0    >=3.11 <4 || >=4.5  myapp > express@4.2.0
+send            0.3.0         >= 0.8.4       myapp > express@4.2.0 > send@0.3.0
+qs              0.6.6          >= 1.x        myapp > express@4.2.0 > qs@0.6.6
+serve-static    1.1.0     ~1.6.5 || >=1.7.2  myapp > express@4.2.0 > serve-static@1.1.0</code></pre>
+                       <small><em style="color:#163">(See also david-dm, gemcanary, &hellip;)</em></small>
+                    </p>
+                </section>
 
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
+                <section>
+                    <h3>Summary</h3>
+                    <p>
+                        <ul>
+                            <li>Use other people's code</li>
+                            <li>Do due dilligence first, and think about your selection criteria</li>
+                            <li>Prefer big tech communities that have the resources to do proper research</li>
+                        </ul>
+                    </p>
+                </section>
 
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
+                <section>
+                    <h1>Questions?</h1>
+                </section>
 
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe src="//www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-				</section>
+            </div>
 
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
-				</section>
+        </div>
 
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
 
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
-				</section>
+        <script>
 
-				<section>
-					<h2>Much more</h2>
-					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
-					</ul>
-				</section>
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
 
-				<section style="text-align: left;">
-					<h1>THE END</h1>
-					<p>
-						- <a href="http://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-					</p>
-				</section>
+                transition: 'fade', // none/fade/slide/convex/concave/zoom
+                backgroundTransition: 'fade',
 
-			</div>
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+                    { src: 'plugin/notes/notes.js', async: true }
+                ]
+            });
 
-		</div>
+        </script>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
-
-		<script>
-
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
-
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
-
-		</script>
-
-	</body>
+    </body>
 </html>
