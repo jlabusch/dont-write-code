@@ -62,37 +62,15 @@
                 </section>
 
                 <section>
-                    <h1>Not so fast</h1>
-                </section>
-
-                <section data-background="img/ring-0.png" data-background-size="auto 100%">
-                    <span style="position:absolute; top:-6em; left:0px">Your code</span>
-                </section>
-
-                <section data-background="img/ring-1a.png" data-background-size="auto 100%">
-                    <span style="position:absolute; top:-6em; left:0px">3<small><sup>rd</sup></small> party libs</span>
-                </section>
-
-                <section data-background="img/ring-2a.png" data-background-size="auto 100%">
-                    <span style="position:absolute; top:-6em; left:0px">Language stdlib</span>
-                </section>
-
-                <section data-background="img/ring-3a.png" data-background-size="auto 100%">
-                    <span style="position:absolute; top:-6em; left:0px">OS/platform</span>
-                </section>
-
-                <section>
-                    <h3>So <em>&ldquo;don't write code,&rdquo;</em> fine&hellip;</h3>
-                    <p>We know we should look for an existing wheel rather than (re-)inventing our own.
-                       But how do we pick the right one?</p>
+                    <h3>But how do you pick good modules?</h3>
                 </section>
 
                 <section>
                     <h3>Examples of terrible criteria</h3>
                     <p>
                         <ul class="fa-ul" style="list-style-type:none;">
-                            <li class="fragment"><i class="fa-li fa fa-github"></i>It has many stars on GitHub</li>
-                            <li class="fragment"><i class="fa-li fa fa-download"></i>It has many downloads this week on npmjs.org</li>
+                            <li class="fragment"><i class="fa-li fa fa-github"></i>Has many stars on GitHub</li>
+                            <li class="fragment"><i class="fa-li fa fa-download"></i>Has many downloads this week on npmjs.org</li>
                             <li class="fragment"><i class="fa-li fa fa-twitter"></i>Someone tweeted about it</li>
                         </ul>
                     </p>
@@ -118,7 +96,27 @@
                 </section>
 
                 <section>
-                    <h3>Hypothesis: candidates from outer rings meet more of those criteria</h3>
+                    <h3>Quick ecosystem recap&hellip;</h3>
+                </section>
+
+                <section data-background="img/ring-0.png" data-background-size="auto 100%">
+                    <span style="position:absolute; top:-6em; left:0px">Your code</span>
+                </section>
+
+                <section data-background="img/ring-1a.png" data-background-size="auto 100%">
+                    <span style="position:absolute; top:-6em; left:0px">3<small><sup>rd</sup></small> party libs</span>
+                </section>
+
+                <section data-background="img/ring-2a.png" data-background-size="auto 100%">
+                    <span style="position:absolute; top:-6em; left:0px">Language stdlib</span>
+                </section>
+
+                <section data-background="img/ring-3a.png" data-background-size="auto 100%">
+                    <span style="position:absolute; top:-6em; left:0px">OS/platform</span>
+                </section>
+
+                <section>
+                    <h3>Hypothesis: candidates from outer rings meet more of those good criteria</h3>
                     <p>
                         <img width="auto" height="400px" data-src="img/ring-3a.png" alt="Rings">
                     </p>
@@ -319,7 +317,7 @@ serve-static    1.1.0     ~1.6.5 || >=1.7.2  myapp > express@4.2.0 > serve-stati
                 </section>
 
                 <section>
-                    <h3>Deployment</h3>
+                    <h3>Deployment should:</h3>
                     <p>
                         <ul class="fa-ul" style="list-style-type:none;">
                             <li class="fragment"><i class="fa-li fa fa-cube"></i>Use real packages (.deb, .rpm, &hellip;)</li>
