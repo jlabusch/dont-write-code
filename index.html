@@ -281,6 +281,8 @@ console.log("Yay I'm now a daemon! Right?");</code></pre>
                             to install a trick package.
                             [*] RubyGems CAN sign, but most don't, and there's no well-established chain
                             of trust - http://guides.rubygems.org/security/
+
+                            Had to invent their own because OS packages moved too slowly.
                         </aside>
                     </p>
                 </section>
@@ -297,6 +299,39 @@ send            0.3.0         >= 0.8.4       myapp > express@4.2.0 > send@0.3.0
 qs              0.6.6          >= 1.x        myapp > express@4.2.0 > qs@0.6.6
 serve-static    1.1.0     ~1.6.5 || >=1.7.2  myapp > express@4.2.0 > serve-static@1.1.0</code></pre>
                        <small><em style="color:#163">(See also david-dm, gemcanary, &hellip;)</em></small>
+                        <aside class="notes">
+                            This is a shitshow, no two ways about it.
+
+                            nodesecurity.io is only as good as its database.
+
+                            "npm outdated" only checks your deps, is not recursive.
+                        </aside>
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Next: deployment</h3>
+                    <p>nibbler, envoy, shake, roco, gogogo, deploy, sneaky, yala,
+                    dploy, grunt-ftp-deploy, pushover, ploy, bora, deployjs, deployme,
+                    edy, gitnodeploy, katapult, paratrooper, nin, rodent, deploy-goon, &hellip;
+                    </p>
+                    <h2 class="fragment">None of these should exist</h2>
+                </section>
+
+                <section>
+                    <h3>Deployment</h3>
+                    <p>
+                        <ul class="fa-ul" style="list-style-type:none;">
+                            <li class="fragment"><i class="fa-li fa fa-cube"></i>Use real packages (.deb, .rpm, &hellip;)</li>
+                            <li class="fragment"><i class="fa-li fa fa-cogs"></i>Use real automation tools (puppet, ansible, &hellip;)</li>
+                            <li class="fragment"><i class="fa-li fa fa-lock"></i>Deploy over SSH with pre-shared keys (FTP is never ok)</li>
+                        </ul>
+                        <aside class="notes">
+                            Deploying via git is not scalable; too slow, too much extra data.
+
+                            Requiring a deployment daemon at the other end you can push to
+                            is introducing moving parts that can fail.
+                        </aside>
                     </p>
                 </section>
 
