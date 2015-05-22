@@ -4,9 +4,9 @@
     <head>
         <meta charset="utf-8">
 
-        <title>Don't Write Code</title>
+        <title>Code reuse (considered hazardous)</title>
 
-        <meta name="description" content="A talk on dangerous module reuse">
+        <meta name="description" content="Safe code reuse in the age of npm">
         <meta name="author" content="Jacques Labuschagne">
 
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -43,26 +43,63 @@
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
                 <section>
-                  <h1>Don't write code</h1>
-                  <h3>(and why that's harder than it sounds)</h3>
+                  <h1>Code reuse</h1>
+                  <h3>(considered hazardous)</h3>
                   <p>
                     <small>
-                      <i class="fa fa-twitter"></i> <a href="http://twitter.com/jlabusch">@jlabusch</a>
+                      <a href="http://twitter.com/jlabusch"><i class="fa fa-twitter"></i> @jlabusch</a>
                     </small>
                   </p>
+                  <aside class="notes">
+                    Code reuse has come a long way.
+                    Not so long ago, it was a totally normal thing for projects to roll their own
+                    logging, config, message queues... All the boring and complicated shit that
+                    takes time and doesn't actually solve the business need that brought you here
+                    in the first place.
+                  </aside>
                 </section>
 
                 <section>
-                    <h3><em>&ldquo;Don't write code&rdquo;</em> is not a new sentiment.</h3>
+                  <h3><em>&ldquo;Don't write code&rdquo;</em> is not a new sentiment.</h3>
+                  <aside class="notes">
+                    The crazy thing is that reuse is not a new idea. It just looked a lot different
+                    back then. From what I've seen, the big shift in reuse has come not from
+                    motivation, but in availability and DISCOVERability.
                     <p>
-                        
-                    </p><p>
+                    Instead of Alice adding her config parser to the company's common utils library,
+                    it's now a case of publishing a module to NPM, where if you're lucky, you can
+                    get feedback and even patches from other companies and hobbyists in the industry.
+                    <p>
+                    This has of course come hand-in-hand with greater acceptance of open source by
+                    tech businesses - not just using, but actually contributing. Plus, empoyment
+                    contracts seem to be nowhere near as restrictive.
+                  </aside>
+                </section>
+
+                <section>
+                    <p>
                         Need to do $X? <pre style="width:420px;"><code>{npm,pip,gem} install $X</code></pre>
                     </p>
+                  <aside class="notes">
+                    So when you need to do some boring generic thing, it's accepted that one
+                    should first hit google and find an existing tool.
+                  </aside>
                 </section>
 
                 <section>
                     <h3>But how do you pick good modules?</h3>
+                  <aside class="notes">
+                    Unfortunately -- and I know the plural of anecdote is not data -- I have
+                    often seen people use the nearest thing to hand without really thinking
+                    the choices through.<p>
+                    For example, last year I saw a project (not us!) re-skin a site using
+                    jQuery 1.2 (ca. 2008). It's just what they had lying around. No thought.
+                    This year, they tried to integrate a new thing into the site and lo and
+                    behold, it wouldn't play with jQuery 1.2. Pointless headache.
+                    <p>
+                    But ok, let's assume people care enough to go looking. It's still
+                    not a given they'll make good choices. 
+                  </aside>
                 </section>
 
                 <section>
@@ -75,7 +112,10 @@
                         </ul>
                     </p>
                     <aside class="notes">
-                        Jacob Kaplan-Moss getting people to install a trick package
+                        Here are some examples of bad criteria that I've seen people use
+                        to justify their selections...
+                        <p>
+                        Story: PyCon keynote speaker (Jacob Kaplan-Moss?) tweeted sudo pip install somepackage
                     </aside>
                 </section>
 
@@ -89,34 +129,51 @@
                             <li class="fragment"><i class="fa-li fa fa-bug"></i>Periodic security reviews</li>
                             <li class="fragment" style="color:#163"><i class="fa-li fa fa-check-square-o"></i><em>(All the usual stuff about doing one thing well...)</em></li>
                         </ul>
-                        <aside class="notes">
-                            Boring = good.
-                        </aside>
                     </p>
+                    <aside class="notes">
+                        Boring = good.<p>
+                        This stuff is not always obvious.
+                    </aside>
                 </section>
 
                 <section>
                     <h3>Quick ecosystem recap&hellip;</h3>
+                    <aside class="notes">
+                        At this point, let's take a quick step back and talk about the rest of the stack
+                    </aside>
                 </section>
 
                 <section data-background="img/ring-0.png" data-background-size="auto 100%">
                     <span style="position:absolute; top:-6em; left:0px">Your code</span>
+                    <aside class="notes">
+                        Usually when people say "don't reinvent the wheel," this is the layer they're
+                        talking about.
+                    </aside>
                 </section>
 
                 <section data-background="img/ring-1a.png" data-background-size="auto 100%">
                     <span style="position:absolute; top:-6em; left:0px">3<small><sup>rd</sup></small> party libs</span>
+                    <aside class="notes">
+                        For example Express, Passport.js
+                    </aside>
                 </section>
 
                 <section data-background="img/ring-2a.png" data-background-size="auto 100%">
                     <span style="position:absolute; top:-6em; left:0px">Language stdlib</span>
+                    <aside class="notes">
+                        For example the core http server object
+                    </aside>
                 </section>
 
                 <section data-background="img/ring-3a.png" data-background-size="auto 100%">
                     <span style="position:absolute; top:-6em; left:0px">OS/platform</span>
+                    <aside class="notes">
+                        Including common libraries like libxml2
+                    </aside>
                 </section>
 
                 <section>
-                    <h3>Hypothesis: candidates from outer rings meet more of those good criteria</h3>
+                    <h3>Hypothesis: candidates from outer rings are more likely to meet those criteria</h3>
                     <p>
                         <img width="auto" height="400px" data-src="img/ring-3a.png" alt="Rings">
                     </p>
@@ -344,9 +401,9 @@ serve-static    1.1.0     ~1.6.5 || >=1.7.2  myapp > express@4.2.0 > serve-stati
                     </p>
                 </section>
 
-                <section>
-                    <h1>Questions?</h1>
+                <section data-background="img/catalyst.png" data-background-color="#fff" data-background-size="100% auto">
                 </section>
+
 
             </div>
 
@@ -360,7 +417,7 @@ serve-static    1.1.0     ~1.6.5 || >=1.7.2  myapp > express@4.2.0 > serve-stati
             // Full list of configuration options available at:
             // https://github.com/hakimel/reveal.js#configuration
             Reveal.initialize({
-                controls: true,
+                controls: false,
                 progress: true,
                 history: true,
                 center: true,

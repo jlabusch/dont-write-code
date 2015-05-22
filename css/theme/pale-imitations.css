@@ -11,8 +11,8 @@ section.has-light-background, section.has-light-background h1, section.has-light
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #2ecc71;
-  background-color: #2ecc71;
+  background: #27ae60; /* #16a085; */
+  background-color: #27ae60;
 }
 
 .reveal {
