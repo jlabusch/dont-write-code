@@ -42,6 +42,11 @@
 
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
+                <!--
+                <section data-background="img/catalyst.png" data-background-color="#fff" data-background-size="100% auto">
+                </section>
+                -->
+
                 <section>
                   <h1>Code reuse</h1>
                   <h3>(considered hazardous)</h3>
@@ -70,9 +75,9 @@
                     it's now a case of publishing a module to NPM, where if you're lucky, you can
                     get feedback and even patches from other companies and hobbyists in the industry.
                     <p>
-                    This has of course come hand-in-hand with greater acceptance of open source by
+                    This has come hand-in-hand with greater acceptance of open source by
                     tech businesses - not just using, but actually contributing. Plus, empoyment
-                    contracts seem to be nowhere near as restrictive.
+                    contracts seem to be nowhere near as OSS-unfriendly these days.
                   </aside>
                 </section>
 
@@ -139,7 +144,7 @@
                 <section>
                     <h3>Quick ecosystem recap&hellip;</h3>
                     <aside class="notes">
-                        At this point, let's take a quick step back and talk about the rest of the stack
+                        Let's take a quick step back and talk about the rest of the stack
                     </aside>
                 </section>
 
@@ -154,69 +159,36 @@
                 <section data-background="img/ring-1a.png" data-background-size="auto 100%">
                     <span style="position:absolute; top:-6em; left:0px">3<small><sup>rd</sup></small> party libs</span>
                     <aside class="notes">
-                        For example Express, Passport.js
+                        For example Express, Django
                     </aside>
                 </section>
 
                 <section data-background="img/ring-2a.png" data-background-size="auto 100%">
                     <span style="position:absolute; top:-6em; left:0px">Language stdlib</span>
                     <aside class="notes">
-                        For example the core http server object
+                        For example the core node http server object
                     </aside>
                 </section>
 
                 <section data-background="img/ring-3a.png" data-background-size="auto 100%">
                     <span style="position:absolute; top:-6em; left:0px">OS/platform</span>
                     <aside class="notes">
-                        Including common libraries like libxml2
+                        Everything from OS components like cron to libraries like libssl and libxml2
                     </aside>
                 </section>
 
                 <section>
-                    <h3>Hypothesis: candidates from outer rings are more likely to meet those criteria</h3>
+                    <h3>Hypothesis: candidates from outer rings meet those critera more often</h3>
                     <p>
                         <img width="auto" height="400px" data-src="img/ring-3a.png" alt="Rings">
                     </p>
-                </section>
-
-                <section>
-                    <h3>Resource comparison</h3>
-                    <p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><i class="fa fa-cogs"></i></td>
-                                <td>OS/platform:</td>
-                                <td>massive user base, funding</td>
-                            <tr>
-                            <tr>
-                                <td><i class="fa fa-database"></i></td>
-                                <td>Lang stdlib:</td>
-                                <td>large user base, some funding</td>
-                            <tr>
-                            <tr>
-                                <td><i class="fa fa-code-fork"></i></td>
-                                <td>3<small><sup>rd</sup></small> party libs:</td>
-                                <td>highly variable, need to research</td>
-                            <tr>
-                            <tr>
-                                <td><i class="fa fa-code"></i></td>
-                                <td>Your code:</td>
-                                <td>usually lean as hell</td>
-                            <tr>
-                        </tbody>
-                    </table>
                     <aside class="notes">
-                        e.g. Node Foundation plat member: $500k USD commitment
+                        I think this is true. Depending on your background, it may or may not seem
+                        that way to you.
+                        <p>
+                        In the remainder of this talk we're going to look at some of the reasons
+                        supporting this idea.
                     </aside>
-                    </p>
                 </section>
 
                 <section data-background="img/unpopular_puffin.jpg" data-background-size="100% auto">
@@ -224,10 +196,29 @@
                 </section>
 
                 <section>
+                    <h3>Functionality/completeness</h3>
+                    <aside class="notes">
+                      The first argument one can make is that most things at the Platform layer have
+                      been around longer, and the longer something sticks around the more likely
+                      it is to be more than just MVP.
+                      <p>
+                      An "more than MVP" doesn't mean bloated; I'm just talking about taking off
+                      enough of the jagged edges so that you don't cut yourself.
+                    </aside>
+                </section>
+
+                <section>
                     <h3>Daemonizing your server</h3>
                     <p>
                         <img width="auto" height="400px" data-src="img/daemon.png" alt="Daemon">
                     </p>
+                    <aside class="notes">
+                      Let's take a really simple thing that most server-side code needs to do: run
+                      in the background.
+                      <p>
+                      If you were being lazy you might just hit npm and search for "daemon" and
+                      there you go... 1.x version number, plenty of downloads last week, sorted.
+                    </aside>
                 </section>
 
                 <section>
@@ -240,6 +231,13 @@ console.log("Yay I'm now a daemon! Right?");</code></pre>
                     <p class="fragment">
                         <img width="auto" height="300px" data-src="img/disapproval.jpg" alt="Disapproval">
                     </p>
+                    <aside class="notes">
+                      It's also very easy to use, and you can try it out by adding just a single line of code.
+                      <p>
+                      Done, right?
+                      <p>
+                      No.
+                    </aside>
                 </section>
 
                 <section>
@@ -257,6 +255,11 @@ console.log("Yay I'm now a daemon! Right?");</code></pre>
                             <li style="color:#163"><i class="fa-li fa fa-check-square-o"></i>Fix stdin/out/err</li>
                         </ul>
                     </p>
+                    <aside class="notes">
+                      This library is a minimum viable product.
+                      <p>
+                      It gets your process into the background, and that's it.
+                    </aside>
                 </section>
 
                 <section>
@@ -272,38 +275,179 @@ console.log("Yay I'm now a daemon! Right?");</code></pre>
                     <p>
                         <ul>
                             <li>They do all that stuff and more</li>
-                            <li>They come from the OS/Platform layer</li>
-                            <li>Only minor code changes required, like setting process name</li>
+                            <li>Battle hardened! Core part of the OS.</li>
                         </ul>
                     </p>
+                    <aside class="notes">
+                      If we had been slightly less lazy, and used an existing tool, all of
+                      those boxes would be ticked.
+                      <p>
+                      Looking to a node/python/ruby library for the solution was not the right
+                      thing to do.
+                    </aside>
                 </section>
 
                 <section>
-                    <h3>Next: YAML parsing</h3>
+                    <h3>Resource comparison</h3>
+                    <aside class="notes">
+                      The next argument is one of resources. Money and time, basically.
+                      <p>
+                      The more people you have crawling over the code to review it, test
+                      it, audit it, the more confidence you can have that it's solid.
+                    </aside>
+                </section>
+
+                <section>
+                    <p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><i class="fa fa-cogs"></i></td>
+                                <td>OS/platform:</td>
+                                <td>massive user base, funding</td>
+                            <tr>
+                            <tr>
+                                <td><i class="fa fa-cog"></i></td>
+                                <td>Lang stdlib:</td>
+                                <td>large user base, some funding</td>
+                            <tr>
+                            <tr>
+                                <td><i class="fa fa-code-fork"></i></td>
+                                <td>3<small><sup>rd</sup></small> party libs:</td>
+                                <td>highly variable, need to research</td>
+                            <tr>
+                            <tr>
+                                <td><i class="fa fa-code"></i></td>
+                                <td>Your code:</td>
+                                <td>usually lean as hell</td>
+                            <tr>
+                        </tbody>
+                    </table>
+                    </p>
+                    <aside class="notes">
+                        Let's start with your own code. I see plenty of small sites going up
+                        with a budget of thousands or tens of thousands of dollars.<br>
+                        In today's market, you probably don't have much fat in there. You need
+                        to get in and out as fast as possible.
+                        <p>
+                        We can't even generalise about the third party modules; they run the
+                        spectrum from a bright idea someone had one afternoon and threw onto
+                        GitHub as v0.1 and never touched again, to stuff like Django and Express
+                        that has a committed army of paid and unpaid contributors.
+                        <br>
+                        That's one of the key points here; you can't assume that the modules are good.
+                        <p>
+                        At the language layer the resource picture looks a bit better again: The
+                        Node Foundation for example, requires Platinum members to commit $1mil USD
+                        over 2 years.
+                        <p>
+                        At the OS layer, even in the Linux world, things are even better. Red Hat,
+                        Ubuntu, all the big players employ dedicated security teams and so on to
+                        make sure that things work as smoothly and safely as possible.<br>
+                        Ubuntu, for example, has $10mil USD stashed in the Ubuntu Foundation (separate
+                        from Canonical), that they haven't touched yet.<br>
+                        In 2012 Red Hat took in more than a billion USD in revenue.
+                    </aside>
+                </section>
+
+                <section>
+                    <h3>But in reality it's not just a vertical slice&hellip;</h3>
+                    <p>Let's talk about indirect benefits</p>
+                    <aside class="notes">
+                      Just to make things a little more interesting...<br>
+                      Up to now we've been talking as though it's a linear stack, like
+                      Linux - Node - Express - you. A lot of the time that's not the
+                      whole picture.
+                    </aside>
+                </section>
+
+                <section data-background="img/system_1.png" data-background-size="auto 100%">
+                    <aside class="notes">
+                      Let's say I have a project that needs to read YAML files. I grab
+                      libyaml from NPM, and off we go.
+                    </aside>
+                </section>
+
+                <section data-background="img/system_2.png" data-background-size="auto 100%">
+                    <aside class="notes">
+                      All of these things I'm using have dependencies. Node links in libpthread,
+                      for example, and the node libyaml module is actually just a thin wrapper
+                      around the libyaml C library.
+                    </aside>
+                </section>
+
+                <section data-background="img/system_3.png" data-background-size="auto 100%">
+                    <aside class="notes">
+                      Let's follow the thread of libyaml. Other communities, using other languages,
+                      also parse YAML.
+                    </aside>
+                </section>
+
+                <section data-background="img/system_4.png" data-background-size="auto 100%">
+                    <aside class="notes">
+                      When someone finds a bug in the underlying implementation it all feeds back
+                      upstream, and effort from community benefits all.
+                    </aside>
+                </section>
+
+                <section>
+                    <h3>Some nuances</h3>
+                    <aside class="notes">
+                      So we've talked about how more resources are good, and about how
+                      using things that are common to many communities can be good,
+                      but I want to stick with YAML parsing a little bit longer, because
+                      there's another more subtle thing it can teach us about re-use.
+                    </aside>
+                </section>
+
+                <section>
+                    <h3>read-yaml/JS-YAML</h3>
                     <p>
                         <img width="auto" height="129px" data-src="img/yaml.png" alt="YAML">
                     </p>
                     <p class="fragment">
                         <img width="auto" height="310px" data-src="img/yaml-cve.png" alt="YAML-CVE">
                     </p>
+                    <aside class="notes">
+                      Let's rewind back to the naiive case where you just went on NPM and found
+                      the most popular YAML library.
+                      <p>
+                      One reason people say "don't write code" is because it'd hard! Bugs are
+                      a given.
+                    </aside>
                 </section>
 
                 <section>
-                    <h3>Trying again with libyaml</h3>
+                    <h3>libyaml</h3>
                     <p>
                         <img width="auto" height="129px" data-src="img/yaml-native.png" alt="YAML">
                     </p>
                     <p class="fragment">
                         <img width="auto" height="310px" data-src="img/yaml-native-cve.png" alt="YAML-CVE">
                     </p>
+                    <aside class="notes">
+                      But we can't pretend that any set of libraries is immune to bugs, bugs happen.
+                    </aside>
                 </section>
 
                 <section>
                     <h3>What libyaml did right</h3>
                     <p>
-                        By wrapping native libraries, it got the direct benefits of review by teams
+                        By wrapping native libraries, it got the indirect benefits of review by teams
                         like Red Hat Product Security, who found this CVE.
                     </p>
+                    <aside class="notes">
+                      We're just trying to stack the odds in our favour. There are no guarantees.
+                      <p>
+                      Now we come to the interesting bit.
+                    </aside>
                 </section>
 
                 <section>
@@ -313,18 +457,27 @@ console.log("Yay I'm now a daemon! Right?");</code></pre>
                         patching his own copy of the native source. Just updating the OS copy of
                         the library didn't fix the problem.
                     </p>
+                    <aside class="notes">
+                      I'd even go so far as to say that this is the <b>standard</b> way to wrap
+                      native libraries in Node. It's garbage! Static linking is one thing, but
+                      copy-paste is just bullshit.
+                    </aside>
                 </section>
 
                 <section>
                     <h3>libyaml hall of shame</h3>
                     <p>
-                        Some libraries that wrap by copy/paste <em>still</em> haven't been updated for
-                        this 2013 vulnerability. (https://github.com/tarruda/node-libyaml)
+                        <a href="https://github.com/tarruda/node-libyaml">Some libraries</a> that wrap by copy/paste <em>still</em> haven't been updated for
+                        this 2013 vulnerability.
                     </p>
+                    <aside class="notes">
+                      Maybe those libraries were never intended for prime time use? Who knows. But let's
+                      talk about that, let's talk about packaging.
+                    </aside>
                 </section>
 
                 <section>
-                    <h3>Next: npm, pip and gem</h3>
+                    <h3>npm, pip and gem</h3>
                     <p>
                         <ul class="fa-ul" style="list-style-type:none;">
                             <li class="fragment"><i class="fa-li fa fa-smile-o"></i>Undeniably convenient</li>
@@ -332,12 +485,18 @@ console.log("Yay I'm now a daemon! Right?");</code></pre>
                             <li class="fragment"><i class="fa-li fa fa-chain"></i>Security nightmare - no review, no signing*</li>
                         </ul>
                         <aside class="notes">
-                            https://github.com/pypa/pip/issues/425 - Jacob Kaplan-Moss getting people
-                            to install a trick package.
-                            [*] RubyGems CAN sign, but most don't, and there's no well-established chain
-                            of trust - http://guides.rubygems.org/security/
-
-                            Had to invent their own because OS packages moved too slowly.
+                          Security issue is not just lack of audit/test coverage of the code itself,
+                          but also the delivery infrastructure.
+                          <p>
+                          [*] RubyGems CAN sign, but most don't, and there's no well-established chain
+                          of trust - http://guides.rubygems.org/security/
+                          <p>
+                          Moderation: https://github.com/pypa/pip/issues/425 - Jacob Kaplan-Moss getting people
+                          to install a trick package.<br>
+                          Contrast with walled gardens that people are growing to expect.
+                          <p>
+                          But all that said, you can't get away from npm, pip and gem. So be
+                          aware of the risks and use tools to mitigate them.
                         </aside>
                     </p>
                 </section>
@@ -355,15 +514,16 @@ qs              0.6.6          >= 1.x        myapp > express@4.2.0 > qs@0.6.6
 serve-static    1.1.0     ~1.6.5 || >=1.7.2  myapp > express@4.2.0 > serve-static@1.1.0</code></pre>
                        <small><em style="color:#163">(See also david-dm, gemcanary, &hellip;)</em></small>
                         <aside class="notes">
-                            This is a shitshow, no two ways about it.
-
-                            nodesecurity.io is only as good as its database.
-
-                            "npm outdated" only checks your deps, is not recursive.
+                          Try to stay on top of sites like nodesecurity.io - but remember that
+                          they're only as good as their communities.
+                          <p>
+                          ("npm outdated" only checks your deps, is not recursive.)
+                          <p>
                         </aside>
                     </p>
                 </section>
 
+                <!--
                 <section>
                     <h3>Next: deployment</h3>
                     <p>nibbler, envoy, shake, roco, gogogo, deploy, sneaky, yala,
@@ -389,6 +549,7 @@ serve-static    1.1.0     ~1.6.5 || >=1.7.2  myapp > express@4.2.0 > serve-stati
                         </aside>
                     </p>
                 </section>
+                -->
 
                 <section>
                     <h3>Summary</h3>
@@ -401,9 +562,9 @@ serve-static    1.1.0     ~1.6.5 || >=1.7.2  myapp > express@4.2.0 > serve-stati
                     </p>
                 </section>
 
-                <section data-background="img/catalyst.png" data-background-color="#fff" data-background-size="100% auto">
+                <section>
+                    <h1>Questions?</h1>
                 </section>
-
 
             </div>
 
