@@ -42,11 +42,7 @@
 
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
-                <!--
-                <section data-background="img/catalyst.png" data-background-color="#fff" data-background-size="100% auto">
-                </section>
-                -->
-
+            <section>
                 <section>
                   <h1>Code reuse</h1>
                   <h3>(considered hazardous)</h3>
@@ -75,6 +71,21 @@
                     </ul>
                   </aside>
                 </section>
+
+                <section data-background="img/catalyst.png" data-background-color="#fff" data-background-size="100% auto">
+                  <aside class="notes">
+                    Show of hands, does everyone here use Node in their day jobs? How about Ruby? Python?
+                    <p>
+                    We do a lot of Node and Python at Catalyst, but I think most of this
+                    applies to Ruby as well.
+                    <br/>
+                    By the way, we're hiring!
+                    <p>
+                    This is a reasonably short talk, ~15-20 minutes, but feel free to jump in with questions
+                    at any point.
+                  </aside>
+                </section>
+            </section>
 
                 <section>
                   <h3><em>&ldquo;Don't write code&rdquo;</em> is not a new sentiment.</h3>
@@ -490,31 +501,39 @@ console.log("Yay I'm now a daemon! Right?");</code></pre>
 
                 <section>
                     <h3>npm, pip and gem</h3>
-                    <p>
-                        <ul class="fa-ul" style="list-style-type:none;">
-                            <li class="fragment"><i class="fa-li fa fa-smile-o"></i>Undeniably convenient</li>
-                            <li class="fragment"><i class="fa-li fa fa-bug"></i>Quality control is problematic - no moderation</li>
-                            <li class="fragment"><i class="fa-li fa fa-chain"></i>Security nightmare - no review, no signing*</li>
-                        </ul>
-                        <aside class="notes">
-                          Security issue is not just lack of audit/test coverage of the code itself,
-                          but also the delivery infrastructure.
-                          <p>
-                          [*] RubyGems CAN sign, but most don't, and there's no well-established chain
-                          of trust - http://guides.rubygems.org/security/
-                          <p>
-                          Moderation: https://github.com/pypa/pip/issues/425 - Jacob Kaplan-Moss getting people
-                          to install a trick package.<br>
-                          Contrast with walled gardens that people are growing to expect.
-                          <p>
-                          But all that said, you can't get away from npm, pip and gem. So be
-                          aware of the risks and use tools to mitigate them.
-                        </aside>
-                    </p>
+                    <ul class="fa-ul" style="list-style-type:none;">
+                        <li class="fragment"><i class="fa-li fa fa-smile-o"></i>Undeniably convenient</li>
+                        <li class="fragment"><i class="fa-li fa fa-bug"></i>Quality control is problematic - no moderation</li>
+                        <li class="fragment"><i class="fa-li fa fa-chain"></i>Security nightmare</li>
+                    </ul>
+                    <aside class="notes">
+                      <ul>
+                        <li>Convenient
+                        <li>Quality control - I think this one speaks for itself, so we won't
+                        go into too much more depth. It's probably fair to say that one reason
+                        npm etc. exist is to remove lag between people publishing code and the
+                        code being available for users, and pushing the burden of quality onto
+                        the authors is consistent with that philosophy, in contrast to the additional layer
+                        the normal OS distribution teams would add.<br/>
+                        So "working as intended", but worth bearing in mind.
+                        <li>Security - let's go into this one in a bit more detail.
+                      </ul>
+                    </aside>
                 </section>
 
                 <section>
-                    <h3>npm, pip and gem</h3>
+                    <h3>Lack of review</h3>
+                    <ul class="fa-ul" style="list-style-type:none;">
+                        <li><i class="fa-li fa fa-caret-right"></i>Contrast with app store &ldquo;walled gardens&rdquo;</li>
+                        <li><i class="fa-li fa fa-caret-right"></i>People very used to trusting packages</li>
+                    </ul>
+                    <aside class="notes">
+                      https://github.com/pypa/pip/issues/425 - Jacob Kaplan-Moss getting people
+                      to install a trick package.
+                    </aside>
+                </section>
+
+                <section>
                     <p>
                         Use tools like nsp to check your dependencies for
                         updates and vulnerabilities.
@@ -533,6 +552,60 @@ serve-static    1.1.0     ~1.6.5 || >=1.7.2  myapp > express@4.2.0 > serve-stati
                           <p>
                         </aside>
                     </p>
+                </section>
+
+                <section>
+                    <h3>Signed packages</h3>
+                    <ul class="fa-ul" style="list-style-type:none;">
+                        <li><i class="fa-li fa fa-caret-right"></i>Currently no support in npm or pip</li>
+                        <li><i class="fa-li fa fa-caret-right"></i>Not commonly used by gems - no chain of trust</li>
+                    </ul>
+                    <aside class="notes">
+                      Package signing is about proving both that the package is intact (e.g. md5sum)
+                      and that it was published by the real author.
+                      <p>
+                      RubyGems: http://guides.rubygems.org/security/
+                      <p>
+                      In late 2013 PyPI folks recommended just removing the mirror authenticity APIs
+                      because the reality was that nobody ever used them.
+                    </aside>
+                </section>
+
+                <section data-background="img/cat1.jpg" data-background-size="100% auto">
+                </section>
+
+                <section>
+                    <h3>Immature infrastructure</h3>
+                    <ul class="fa-ul" style="list-style-type:none;">
+                        <li><i class="fa-li fa fa-caret-right"></i>All new things have teething issues</li>
+                        <li class="fragment"><i class="fa-li fa fa-caret-right"></i>RubyGems 2013 remote code execution flaw</li>
+                        <li class="fragment"><i class="fa-li fa fa-caret-right"></i>NPM 2014 static file leakage (and other) flaws</li>
+                    </ul>
+                    <aside class="notes">
+                      As with all new things, there are bugs to be worked out. Sometimes pretty fundamental
+                      ones, unfortunately.
+                      <p>
+                      <b>In 2013</b> there was a remote code execution vulnerability on rubygems.org - someone
+                      uploaded a malicious gem that caused the database configuration details, including
+                      passwords, to be emailed to a paste-it note on pastie.org.
+                      <p>
+                      <b>In 2014</b> a classic directory traversal and static file leakage bug was found in
+                      the st module used by npmjs.org.<br/>
+                      At roughly the same time they had an audit done by Lyft, who also found
+                      <ul>
+                        <li>User could publish a package and make it appear to have been published by
+                        someone else
+                        <li>Password-reset flow was easily phished
+                        <li>You could "star" a package as another user
+                        <li>Users could inject scripts into the NPM website via README and LICENSE fields
+                      </ul>
+                      <p>
+                      But all that said, you can't get away from npm, pip and gem. So be
+                      aware of the risks and use tools to mitigate them.
+                    </aside>
+                </section>
+
+                <section data-background="img/cat2.jpg" data-background-size="100% auto">
                 </section>
 
                 <!--
@@ -577,7 +650,6 @@ serve-static    1.1.0     ~1.6.5 || >=1.7.2  myapp > express@4.2.0 > serve-stati
                 <section>
                     <h1>Questions?</h1>
                 </section>
-
             </div>
 
         </div>
