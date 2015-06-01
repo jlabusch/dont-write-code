@@ -81,7 +81,7 @@
                     <br/>
                     By the way, we're hiring!
                     <p>
-                    This is a reasonably short talk, ~15-20 minutes, but feel free to jump in with questions
+                    This is a reasonably short talk, &lt;20 minutes, but feel free to jump in with questions
                     at any point.
                   </aside>
                 </section>
@@ -90,8 +90,8 @@
                 <section>
                   <h3><em>&ldquo;Don't write code&rdquo;</em> is not a new sentiment.</h3>
                   <aside class="notes">
-                    The crazy thing is that reuse is not a new idea. It just looked a lot different
-                    back then. From what I've seen, the big shift in reuse has come not from
+                    So while reuse is not a new idea, it has changed shape a lot in
+                    the past 20 years, and I think the big shift has come not from
                     motivation, but in availability and DISCOVERability.
                     <p>
                     Instead of Alice adding her config parser to the company's common utils library,
@@ -109,8 +109,8 @@
                         Need to do $X? <pre style="width:420px;"><code>{npm,pip,gem} install $X</code></pre>
                     </p>
                   <aside class="notes">
-                    So when you need to do some boring generic thing, it's accepted that one
-                    should first hit google and find an existing tool.
+                    So when you need to do some boring generic thing, it's accepted that you
+                    should first hit google and try to find an existing tool.
                   </aside>
                 </section>
 
@@ -120,13 +120,14 @@
                     Unfortunately -- and I know the plural of anecdote is not data -- I have
                     often seen people use the nearest thing to hand without really thinking
                     the choices through.<p>
-                    For example, last year I saw a project (not us!) re-skin a site using
-                    jQuery 1.2 (ca. 2008). It's just what they had lying around. No thought.
-                    This year, they tried to integrate a new thing into the site and lo and
-                    behold, it wouldn't play with jQuery 1.2. Pointless headache.
+                    For example, last year a company that shall remain nameless re-skinned a
+                    site using jQuery 1.2 (ca. 2008). It's just what they had lying around.
                     <p>
-                    But ok, let's assume people care enough to go looking. It's still
-                    not a given they'll make good choices. 
+                    This year, we tried to integrate a new thing into that site and lo and
+                    behold it wouldn't play nice with jQuery 1.2. What a pointless headache.
+                    <p>
+                    But ok, let's assume people care enough to put in a little more effort -
+                    it's still not a given they'll make good choices. 
                   </aside>
                 </section>
 
@@ -143,7 +144,10 @@
                         Here are some examples of bad criteria that I've seen people use
                         to justify their selections...
                         <p>
-                        Story: PyCon keynote speaker (Jacob Kaplan-Moss?) tweeted sudo pip install somepackage
+                        Story: PyCon Montreal speaker (Jacob Kaplan-Moss?) tweeted sudo pip install somepackage.
+                        No explanation about what the package was. A bunch of curious people did.
+                        The package gathered a bunch of info about their machines and uploaded it to Heroku.
+                        But we'll get back to that later!
                     </aside>
                 </section>
 
@@ -159,8 +163,9 @@
                         </ul>
                     </p>
                     <aside class="notes">
-                        Boring = good.<p>
-                        This stuff is not always obvious.
+                        Boring = good. You don't want excitement anywhere near production.<p>
+                        A lot of this stuff is not always obvious. You actually have to do
+                        a bit of research.
                     </aside>
                 </section>
 
@@ -175,28 +180,29 @@
                     <span style="position:absolute; top:-6em; left:0px">Your code</span>
                     <aside class="notes">
                         Usually when people say "don't reinvent the wheel," this is the layer they're
-                        talking about.
+                        talking about. You want your code to be small, and focused on business logic
+                        as much as possible.
                     </aside>
                 </section>
 
                 <section data-background="img/ring-1a.png" data-background-size="auto 100%">
                     <span style="position:absolute; top:-6em; left:0px">3<small><sup>rd</sup></small> party libs</span>
                     <aside class="notes">
-                        For example Express, Django
+                        For example Express, Django.
                     </aside>
                 </section>
 
                 <section data-background="img/ring-2a.png" data-background-size="auto 100%">
                     <span style="position:absolute; top:-6em; left:0px">Language stdlib</span>
                     <aside class="notes">
-                        For example the core node http server object
+                        For example the core node http server object.
                     </aside>
                 </section>
 
                 <section data-background="img/ring-3a.png" data-background-size="auto 100%">
                     <span style="position:absolute; top:-6em; left:0px">OS/platform</span>
                     <aside class="notes">
-                        Everything from OS components like cron to libraries like libssl and libxml2
+                        Everything from OS components like cron to libraries like libssl and libxml2.
                     </aside>
                 </section>
 
@@ -206,15 +212,17 @@
                         <img width="auto" height="400px" data-src="img/ring-3a.png" alt="Rings">
                     </p>
                     <aside class="notes">
-                        I think this is true. Depending on your background, it may or may not seem
-                        that way to you.
-                        <p>
-                        In the remainder of this talk we're going to look at some of the reasons
-                        supporting this idea.
+                        In the remainder of this talk we're going to explore this idea a little more.
+                        <ul>
+                            <li>Been in stable production use for a while</li>
+                            <li>Healthy bug report/fix lifecycle</li>
+                            <li>Good packaging and availability of updates</li>
+                            <li>Periodic security reviews</li>
+                        </ul>
                     </aside>
                 </section>
 
-                <section data-background="img/unpopular_puffin.jpg" data-background-size="100% auto">
+                <section data-background="img/cat3jump.jpg" data-background-size="auto 100%">
                     <h1 style="text-shadow:2px 2px 4px rgba(0,0,0,0.8)">On to some examples</h1>
                 </section>
 
@@ -322,35 +330,29 @@ console.log("Yay I'm now a daemon! Right?");</code></pre>
 
                 <section>
                     <p>
+                    <style>td { border-width: 0px !important; }</style>
                     <table>
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
                         <tbody>
-                            <tr>
-                                <td><i class="fa fa-cogs"></i></td>
-                                <td>OS/platform:</td>
-                                <td>massive user base, funding</td>
-                            <tr>
-                            <tr>
-                                <td><i class="fa fa-cog"></i></td>
-                                <td>Lang stdlib:</td>
-                                <td>large user base, some funding</td>
-                            <tr>
-                            <tr>
-                                <td><i class="fa fa-code-fork"></i></td>
-                                <td>3<small><sup>rd</sup></small> party libs:</td>
-                                <td>highly variable, need to research</td>
-                            <tr>
                             <tr>
                                 <td><i class="fa fa-code"></i></td>
                                 <td>Your code:</td>
                                 <td>usually lean as hell</td>
-                            <tr>
+                            </tr>
+                            <tr class="fragment">
+                                <td><i class="fa fa-code-fork"></i></td>
+                                <td>3<small><sup>rd</sup></small> party libs:</td>
+                                <td>highly variable, need to research</td>
+                            </tr>
+                            <tr class="fragment">
+                                <td><i class="fa fa-cog"></i></td>
+                                <td>Lang stdlib:</td>
+                                <td>large user base, some funding</td>
+                            </tr>
+                            <tr class="fragment">
+                                <td><i class="fa fa-cogs"></i></td>
+                                <td>OS/platform:</td>
+                                <td>massive user base, funding</td>
+                            </tr>
                         </tbody>
                     </table>
                     </p>
@@ -408,15 +410,16 @@ console.log("Yay I'm now a daemon! Right?");</code></pre>
 
                 <section data-background="img/system_3.png" data-background-size="auto 100%">
                     <aside class="notes">
-                      Let's follow the thread of libyaml. Other communities, using other languages,
-                      also parse YAML.
+                      Other communities, using other languages, also parse YAML.
                     </aside>
                 </section>
 
                 <section data-background="img/system_4.png" data-background-size="auto 100%">
                     <aside class="notes">
                       When someone finds a bug in the underlying implementation it all feeds back
-                      upstream, and effort from community benefits all.
+                      upstream, and effort from one community benefits all.
+                      That's why I say it's not a vertical slice, you get cross pollination from
+                      communities that have nothing to do with your specific project.
                     </aside>
                 </section>
 
@@ -481,9 +484,8 @@ console.log("Yay I'm now a daemon! Right?");</code></pre>
                         the library didn't fix the problem.
                     </p>
                     <aside class="notes">
-                      I'd even go so far as to say that this is the <b>standard</b> way to wrap
-                      native libraries in Node. It's garbage! Static linking is one thing, but
-                      copy-paste is just bullshit.
+                      This is a depressingly common way to wrap native libraries in Node, and
+                      it's garbage! Static linking is one thing, but copy-paste is just bullshit.
                     </aside>
                 </section>
 
@@ -528,8 +530,7 @@ console.log("Yay I'm now a daemon! Right?");</code></pre>
                         <li><i class="fa-li fa fa-caret-right"></i>People very used to trusting packages</li>
                     </ul>
                     <aside class="notes">
-                      https://github.com/pypa/pip/issues/425 - Jacob Kaplan-Moss getting people
-                      to install a trick package.
+                      https://github.com/pypa/pip/issues/425 - Jacob Kaplan-Moss' trick pip.
                     </aside>
                 </section>
 
@@ -561,7 +562,7 @@ serve-static    1.1.0     ~1.6.5 || >=1.7.2  myapp > express@4.2.0 > serve-stati
                         <li><i class="fa-li fa fa-caret-right"></i>Not commonly used by gems - no chain of trust</li>
                     </ul>
                     <aside class="notes">
-                      Package signing is about proving both that the package is intact (e.g. md5sum)
+                      Package signing is about proving both that the package is intact (e.g. checksum)
                       and that it was published by the real author.
                       <p>
                       RubyGems: http://guides.rubygems.org/security/
@@ -589,8 +590,8 @@ serve-static    1.1.0     ~1.6.5 || >=1.7.2  myapp > express@4.2.0 > serve-stati
                       uploaded a malicious gem that caused the database configuration details, including
                       passwords, to be emailed to a paste-it note on pastie.org.
                       <p>
-                      <b>In 2014</b> a classic directory traversal and static file leakage bug was found in
-                      the st module used by npmjs.org.<br/>
+                      <b>In 2014</b> a classic directory traversal and static file leakage vulnerability
+                      was found in the st module used by npmjs.org.<br/>
                       At roughly the same time they had an audit done by Lyft, who also found
                       <ul>
                         <li>User could publish a package and make it appear to have been published by
